@@ -18,6 +18,8 @@ public class WalletController {
 
     @PostMapping("/wallets")
     public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto dto) {
-        walletService.createWallet(dto);
+        var wallet = walletService.createWallet(dto);
+
+        return  ResponseEntity.ok(wallet);
     }
 }
