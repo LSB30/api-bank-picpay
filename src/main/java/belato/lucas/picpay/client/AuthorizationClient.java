@@ -1,6 +1,8 @@
 package belato.lucas.picpay.client;
 
+import belato.lucas.picpay.dtos.AuthorizationResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(
@@ -8,4 +10,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 )
 public interface AuthorizationClient {
     @GetMapping
+    ResponseEntity<AuthorizationResponse> isAuthorized();
 }
