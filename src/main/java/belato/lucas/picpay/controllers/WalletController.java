@@ -3,6 +3,7 @@ package belato.lucas.picpay.controllers;
 import belato.lucas.picpay.dtos.CreateWalletDto;
 import belato.lucas.picpay.entities.Wallet;
 import belato.lucas.picpay.services.WalletService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class WalletController {
     }
 
     @PostMapping("/wallets")
-    public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto dto) {
+    public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto dto) {
         var wallet = walletService.createWallet(dto);
 
         return  ResponseEntity.ok(wallet);

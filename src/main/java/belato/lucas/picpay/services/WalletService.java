@@ -4,7 +4,9 @@ import belato.lucas.picpay.dtos.CreateWalletDto;
 import belato.lucas.picpay.entities.Wallet;
 import belato.lucas.picpay.expections.WalletDataAlreadyExistsException;
 import belato.lucas.picpay.respositories.WalletRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WalletService {
 
    private final WalletRepository walletRepository;
@@ -14,8 +16,8 @@ public class WalletService {
     }
 
     public Wallet createWallet(CreateWalletDto dto) {
-        var wallettDb = walletRepository.findBycpfOrCnpjOrEmail(dto.cnpjOrCnpj(), dto.email());
-        if(wallettDb.isPresent()) {
+        var walletDb = walletRepository.findBycpfCnpjOrEmail(dto.cpfCnpj(), dto.email());
+        if(walletDb.isPresent()) {
             throw new WalletDataAlreadyExistsException("Cpf,Cnpj or Email already exists");
         }
         return walletRepository.save(dto.toWallet());

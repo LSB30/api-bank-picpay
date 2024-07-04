@@ -15,7 +15,7 @@ public class Wallet {
     private String fullName;
 
     @Column(name = "cpf_cnpj", unique = true)
-    private String cpfOrCnpj;
+    private String cpfCnpj;
 
     @Column(name = "email", unique = true)
     private String email;
@@ -34,9 +34,9 @@ public class Wallet {
 
     }
 
-    public Wallet(String fullName, String cpfOrCnpj, String email, String password, WalletType walletType) {
+    public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
         this.fullName = fullName;
-        this.cpfOrCnpj = cpfOrCnpj;
+        this.cpfCnpj = cpfCnpj;
         this.email = email;
         this.password = password;
         this.walletType = walletType;
@@ -58,12 +58,12 @@ public class Wallet {
         this.fullName = fullName;
     }
 
-    public String getCpfOrCnpj() {
-        return cpfOrCnpj;
+    public String getCpfCnpj() {
+        return cpfCnpj;
     }
 
-    public void setCpfOrCnpj(String cpfOrCnpj) {
-        this.cpfOrCnpj = cpfOrCnpj;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 
     public String getEmail() {

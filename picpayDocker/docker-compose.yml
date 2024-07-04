@@ -6,9 +6,9 @@ services:
     expose:
       - "3306"
     environment:
-      - MYSQL_USER=ls
+      - MYSQL_USER=lsb
       - MYSQL_PASSWORD=123
-      - MYSQL_DATABASE=picpaydb
+      - MYSQL_DATABASE=picpayDb
       - MYSQL_ROOT_PASSWORD=123
     volumes:
       - db_data:/var/lib/mysql
