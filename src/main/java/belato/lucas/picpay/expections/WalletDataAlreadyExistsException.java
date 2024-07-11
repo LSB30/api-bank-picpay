@@ -3,7 +3,7 @@ package belato.lucas.picpay.expections;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
-public class WalletDataAlreadyExistsException extends PicpayExpection{
+public class WalletDataAlreadyExistsException extends PicpayException {
 
     private String detail;
 

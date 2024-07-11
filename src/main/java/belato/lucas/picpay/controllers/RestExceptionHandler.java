@@ -1,6 +1,6 @@
 package belato.lucas.picpay.controllers;
 
-import belato.lucas.picpay.expections.PicpayExpection;
+import belato.lucas.picpay.expections.PicpayException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(PicpayExpection.class)
-    public ProblemDetail handlePicPayException(PicpayExpection e) {
+    @ExceptionHandler(PicpayException.class)
+    public ProblemDetail handlePicPayException(PicpayException e) {
         return e.toProblemDetail();
     }
 

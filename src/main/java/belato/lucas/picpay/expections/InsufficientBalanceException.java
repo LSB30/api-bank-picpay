@@ -3,20 +3,13 @@ package belato.lucas.picpay.expections;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
-public class WalletNotFoundException extends PicpayException {
-
-    private Long walletid;
-
-    public WalletNotFoundException(Long walletid) {
-        this.walletid = walletid;
-    }
-
+public class InsufficientBalanceException extends PicpayException {
     @Override
     public ProblemDetail toProblemDetail() {
         var pb = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
 
-        pb.setTitle("Wallet not found");
-        pb.setDetail("There is no wallet with id" + walletid + "." );
+        pb.setTitle("Insufficient Balance");
+        pb.setDetail("You cannot transfer a value bigger than your current balance");
 
         return pb;
     }
